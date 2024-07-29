@@ -1,1 +1,3 @@
-GATK Pipeline
+# GATK-pipeline
+
+## Calling GATK Variants
