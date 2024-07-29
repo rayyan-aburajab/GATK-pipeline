@@ -10,9 +10,13 @@
 #SBATCH --time=24:00:00               # Time limit hrs:min:sec
 #SBATCH --output=validatestep3_%j.log   # Standard output and error log
 
-module load singularity
+DATA_DIR="/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData2"
+Singularity_GATK="/coh_labs/dits/rayyan/containers/gatk_latest.sif"
 
-singularity exec -B /coh_labs/dits/ngs_tools/ORIEN_ADMIXTURE/input:/coh_labs/dits/ngs_tools/ORIEN_ADMIXTURE/input -B /coh_labs/dits/rayyan:/coh_labs/dits/rayyan /coh_labs/dits/ngs_tools/ORIEN_ADMIXTURE/input/gatk.sif \
+module load singularity
+export SINGULARITY_BIND="/coh_labs:/coh_labs"
+ 
+singularity exec "$Singularity_GATK" \
 gatk  ValidateSamFile \
- --I C083-000002_GermlineDNA_mergebamalignment.bam \
+ --I "$DATA_DIR/C083-000002_GermlineDNA_mergebamalignment.bam" \
  --MODE SUMMARY
