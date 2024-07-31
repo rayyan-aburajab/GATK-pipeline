@@ -8,15 +8,16 @@ GATK (4.6.0) singularity container
 ```
 module load singularity
 export SINGULARITY_BIND="/coh_labs/dits/rayyan:/coh_labs/dits/rayyan"
+
+singularity exec "$Singularity_GATK" \
 ```
-## Sample Pre-Processing
+## Part I: Sample Pre-Processing
 
 ### Step 1: fastq-to-ubam
 - Purpose: Generate compatible unmapped bam input for GATK best practices workflow
 - Input: Fastq (paired)
 - Output: Bam (unmapped)
 ```
-singularity exec "$Singularity_GATK" \
 gatk FastqToSam \
  --FASTQ "$FASTQ_DIR/C083-000002_WF00054603_h034885-01D-01L_GermlineDNA_R1_001.fastq.gz" \
  --FASTQ2 "$FASTQ_DIR/C083-000002_WF00054603_h034885-01D-01L_GermlineDNA_R2_001.fastq.gz" \
@@ -28,7 +29,6 @@ gatk FastqToSam \
 - Input: Bam (unmapped)
 - Output: Bam (unmapped), metrics file
 ```
-singularity exec "$Singularity_GATK" \
 gatk MarkIlluminaAdapters \
  --I "$DATA_DIR/C083-000002_GermlineDNA_fastqtosam.bam" \
  --O "$DATA_DIR/C083-000002_GermlineDNA_markilluminaadapters.bam" \
@@ -39,7 +39,6 @@ gatk MarkIlluminaAdapters \
 - Input: Bam (unmapped)
 - Output: Fastq (interleaved)
 ```
-singularity exec "$Singularity_GATK" \
 gatk  SamToFastq \
  --I "$DATA_DIR/C083-000002_GermlineDNA_markilluminaadapters.bam" \
  --FASTQ "$DATA_DIR/C083-000002_GermlineDNA_samtofastq_interleaved.fq" \
@@ -53,12 +52,13 @@ gatk  SamToFastq \
 bwa mem -p "$REF_DIR"/Homo_sapiens_assembly38.fasta \
 "$DATA_DIR/C083-000002_GermlineDNA_samtofastq_interleaved.fq" > "$DATA_DIR/C083-000002_GermlineDNA_bwamem.sam"
 ```
+Note: the linked guide recommends -M option. This is due to incompatibility between Picard and previous GATK versions. That option is no longer recommended according to more recent documentation.
+
 ### Step 3C: mergebamalignment
 - Purpose: generates "clean" bam by merging aligned and unmapped bams to retain all meta data
 - Input: Bam (unmapped), Bam (mapped), reference
 - Output: Bam
 ```
-singularity exec "$Singularity_GATK" \
 gatk  MergeBamAlignment \
  --R "$REF_DIR/Homo_sapiens_assembly38.fasta" \
  --ALIGNED_BAM "$DATA_DIR/C083-000002_GermlineDNA_bwamem.sam" \
@@ -74,21 +74,39 @@ gatk  MergeBamAlignment \
 - Input: Bam, reference
 - Output: Bam, metrics file
 ```
-singularity exec "$Singularity_GATK" \
 gatk  MarkDuplicatesSpark \
  --I "$DATA_DIR/C083-000002_GermlineDNA_mergebamalignment.bam" \
  --O "$DATA_DIR/C083-000002_GermlineDNA_markedduplicates.bam" \
  --R "$REF_DIR/Homo_sapiens_assembly38.fasta" \
  --M "$DATA_DIR/C083-000002_GermlineDNA_markeddups_metrics.txt
  ```
+ Note: may fail due to missing read group information. If so, refer to "optional_addreadgroups" script before marking duplicates.
 ### Step 5: baserecalibration
-[skipping in this workflow]
+[optional - skipping in this workflow]
 
- ## Calling GATK Variants
+ ## Part II: Calling GATK Variants
 
-### Step 6:
-(to be continued)
-
+### Step 6: haplotypecaller
+- Purpose: identify regions with high variability ("active regions") and align those reads against reference haplotype to assign likely genotypes to each potential variant site
+- Input: Bam, reference
+- Output: GVCF file with raw SNP/indel calls
+```
+gatk  HaplotypeCaller \
+ --I "$DATA_DIR/C083-000002_GermlineDNA_markedduplicates.bam" \
+ --R "$REF_DIR/Homo_sapiens_assembly38.fasta" \
+ --O "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller.g.vcf.gz" \
+ --ERC GVCF
+ ```
+### Step 7: genotype-gvcfs
+- Purpose: perform genotyping based on variants/potential genoytypes identified by HaplotypeCaller
+- Input: GVCF
+- Output: VCF file, index file
+```
+gatk GenotypeGVCFs \
+ --R "$REF_DIR/Homo_sapiens_assembly38.fasta" \
+ --V "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller.g.vcf.gz" \
+ --O "$DATA_DIR/C083-000002_GermlineDNA_genoptype.vcf.gz"
+ ```
 
  ### References:
  - Workflow overview: https://gatk.broadinstitute.org/hc/en-us/articles/360035535912-Data-pre-processing-for-variant-discovery
