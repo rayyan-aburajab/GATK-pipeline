@@ -86,7 +86,7 @@ gatk  MarkDuplicatesSpark \
 
  ## Part II: Calling GATK Variants
 
-##### Note: Most best practices workflows are designed for cohorts/multiple samples. Since we are working on a single sample, steps may differ. These steps are marked (alt).
+##### Note: the standard best practices workflow is intended for cohorts/multiple samples. Since this analysis involves a single germline sample, some steps differ from the standard protocol. These steps are marked (alt).
 
 ### Step 6: haplotypecaller (alt)
 - Purpose: identify regions with high variability ("active regions") and align those reads against reference haplotype to assign likely genotypes to each potential variant site
