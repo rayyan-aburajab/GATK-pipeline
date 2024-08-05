@@ -142,7 +142,7 @@ gatk Funcotator \
      --output "$DATA_DIR/C083-000002_GermlineDNA_funcotator.vcf" \
      --output-file-format VCF
  ```
- ### Step 9: analyze
+ ### Step 10: analyze
 - Purpose: analyze VCF annotations
 - Input: annotated VCF
 - Output: table (all annotations), txt (funcotator annotations)
