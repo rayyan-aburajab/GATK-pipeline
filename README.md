@@ -108,8 +108,8 @@ gatk  HaplotypeCaller \
 *CNNscorevariants stuck on "Loading libgkl_utils.so" step. Same with version 4.5.0.0. Previous discussion forums noted this issue with manual GATK installations that was solved by using docker version (which was 4.2.0.0 at the time). Unclear why my more recent docker containers are not working, but script did eventually work with version 4.2.0.0 (did not try 4.3.0.0 or 4.4.0.0)*
 ```
 gatk CNNScoreVariants \
-   -I "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller-aligned.bam" \
-   -V "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller-single.vcf.gz" \
+   -I "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller.bam" \
+   -V "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller.vcf.gz" \
    -R "$REF_DIR/Homo_sapiens_assembly38.fasta" \
    -O "$DATA_DIR/C083-000002_GermlineDNA_CNNannotated.vcf" \
    -tensor-type read_tensor
