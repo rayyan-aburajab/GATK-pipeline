@@ -96,8 +96,8 @@ gatk  MarkDuplicatesSpark \
 gatk  HaplotypeCaller \
  --I "$DATA_DIR/C083-000002_GermlineDNA_markedduplicates.bam" \
  --R "$REF_DIR/Homo_sapiens_assembly38.fasta" \
- --O "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller-single.vcf.gz" \
- --bamout "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller-aligned.bam"
+ --O "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller.vcf.gz" \
+ --bamout "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller.bam"
  ```
 ### Step 7: CNNscorevariants (alt)
 - Purpose: uses a pre-trained convolutional neural network (deep learning model) to predict the quality of each variant and annotate accordingly. Here, using 2D model which assesses aligned reads in bam file in addition to reference and variant annotations that are used in 1D model.
