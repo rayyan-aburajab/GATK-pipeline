@@ -142,6 +142,19 @@ gatk Funcotator \
      --output "$DATA_DIR/C083-000002_GermlineDNA_funcotator.vcf" \
      --output-file-format VCF
  ```
+ ### Step 9: analyze
+- Purpose: analyze VCF annotations
+- Input: annotated VCF
+- Output: table (all annotations), txt (funcotator annotations)
+```
+gatk VariantsToTable \
+     -V "$DATA_DIR/C083-000002_GermlineDNA_funcotator.vcf" \
+     -O "$DATA_DIR/C083-000002_GermlineDNA_funcotator_output.table"
+
+cat "$DATA_DIR/C083-000002_GermlineDNA_funcotator.vcf" | grep " Funcotation fields are: " | sed 's/|/\t/g' > "$DATA_DIR/C083-000002_GermlineDNA_func-variants.txt"
+cat "$DATA_DIR/C083-000002_GermlineDNA_funcotator_output.table" | cut -f 16 | sed 's/|/\t/g' >> "$DATA_DIR/C083-000002_GermlineDNA_func-variants.txt"
+
+ ```
  ### References:
  - Workflow overview: https://gatk.broadinstitute.org/hc/en-us/articles/360035535912-Data-pre-processing-for-variant-discovery
  - Generating ubam from fastq: https://gatk.broadinstitute.org/hc/en-us/articles/4403687183515--How-to-Generate-an-unmapped-BAM-from-FASTQ-or-aligned-BAM
