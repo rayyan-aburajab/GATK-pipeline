@@ -2,7 +2,7 @@
 
 ## GATK Best Practices Pipeline Overview
 
-https://gatk.broadinstitute.org/hc/theming_assets/01HZPKW2HXTR2JFMVD55S4VNTY
+https://gatk.broadinstitute.org/hc/user_images/HWgQodHyIEYYMBG4kxnFyA.jpeg
 
 GATK (4.6.0) singularity container
 ```
@@ -86,30 +86,64 @@ gatk  MarkDuplicatesSpark \
 
  ## Part II: Calling GATK Variants
 
-### Step 6: haplotypecaller
+##### Note: Most best practices workflows are designed for cohorts/multiple samples. Since we are working on a single sample, steps may differ. These steps are marked (alt).
+
+### Step 6: haplotypecaller (alt)
 - Purpose: identify regions with high variability ("active regions") and align those reads against reference haplotype to assign likely genotypes to each potential variant site
 - Input: Bam, reference
-- Output: GVCF file with raw SNP/indel calls
+- Output: VCF file with raw SNP/indel calls
 ```
 gatk  HaplotypeCaller \
  --I "$DATA_DIR/C083-000002_GermlineDNA_markedduplicates.bam" \
  --R "$REF_DIR/Homo_sapiens_assembly38.fasta" \
- --O "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller.g.vcf.gz" \
- --ERC GVCF
+ --O "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller-single.vcf.gz" \
+ --bamout "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller-aligned.bam"
  ```
-### Step 7: genotype-gvcfs
-- Purpose: perform genotyping based on variants/potential genoytypes identified by HaplotypeCaller
-- Input: GVCF
+### Step 7: CNNscorevariants (alt)
+- Purpose: uses a pre-trained convolutional neural network (deep learning model) to predict the quality of each variant and annotate accordingly. Here, using 2D model which assesses aligned reads in bam file in addition to reference and variant annotations that are used in 1D model.
+- Input: VCF, bam
+- Output: VCF file, index file
+
+##### *Issue with GATK docker version 4.6.0.0:* 
+*CNNscorevariants stuck on "Loading libgkl_utils.so" step. Same with version 4.5.0.0. Previous discussion forums noted this issue with manual GATK installations that was solved by using docker version (which was 4.2.0.0 at the time). Unclear why my more recent docker containers are not working, but script did eventually work with version 4.2.0.0 (did not try 4.3.0.0 or 4.4.0.0)*
+```
+gatk CNNScoreVariants \
+   -I "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller-aligned.bam" \
+   -V "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller-single.vcf.gz" \
+   -R "$REF_DIR/Homo_sapiens_assembly38.fasta" \
+   -O "$DATA_DIR/C083-000002_GermlineDNA_CNNannotated.vcf" \
+   -tensor-type read_tensor
+ ```
+### Step 8: filtervarianttranches (alt)
+- Purpose: use annotated variant scores (from CNN) and known SNPs/indels (resource input) to filter variants. Here, using default filtering thresholds.
+- Input: VCF, known SNP/indel VCFs
 - Output: VCF file, index file
 ```
-gatk GenotypeGVCFs \
- --R "$REF_DIR/Homo_sapiens_assembly38.fasta" \
- --V "$DATA_DIR/C083-000002_GermlineDNA_haplotypecaller.g.vcf.gz" \
- --O "$DATA_DIR/C083-000002_GermlineDNA_genoptype.vcf.gz"
+gatk FilterVariantTranches \
+   -V "$DATA_DIR/C083-000002_GermlineDNA_CNNannotated.vcf" \
+   --resource "$VARIANT_DIR/hapmap_3.3.hg38.vcf.gz" \
+   --resource "$VARIANT_DIR/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz" \
+   --info-key CNN_2D \
+   --snp-tranche 99.95 \
+   --indel-tranche 99.4 \
+   --invalidate-previous-filters \
+   -O "$DATA_DIR/C083-000002_GermlineDNA_filtervarianttranches.vcf"
  ```
-
+### Step 9: funcotator
+- Purpose: annotates variants based on known (gnomAD) datasets.
+- Input: VCF
+- Output: annotated VCF
+```
+gatk Funcotator \
+     --variant "$DATA_DIR/C083-000002_GermlineDNA_filtervarianttranches.vcf" \
+     --reference "$REF_DIR/Homo_sapiens_assembly38.fasta" \
+     --ref-version hg38 \
+     --data-sources-path "$gnomAD_DIR/" \
+     --output "$DATA_DIR/C083-000002_GermlineDNA_funcotator.vcf" \
+     --output-file-format VCF
+ ```
  ### References:
  - Workflow overview: https://gatk.broadinstitute.org/hc/en-us/articles/360035535912-Data-pre-processing-for-variant-discovery
  - Generating ubam from fastq: https://gatk.broadinstitute.org/hc/en-us/articles/4403687183515--How-to-Generate-an-unmapped-BAM-from-FASTQ-or-aligned-BAM
  - Pre-processing guide: https://gatk.broadinstitute.org/hc/en-us/articles/360039568932--How-to-Map-and-clean-up-short-read-sequence-data-efficiently
- - 
+ - Variant calling guide: https://gatk.broadinstitute.org/hc/en-us/articles/360035535932-Germline-short-variant-discovery-SNPs-Indels

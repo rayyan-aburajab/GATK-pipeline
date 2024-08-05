@@ -1,0 +1,93 @@
+05:44:27.697 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.6.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+05:44:27.746 INFO  FuncotatorDataSourceDownloader - ------------------------------------------------------------
+05:44:27.749 INFO  FuncotatorDataSourceDownloader - The Genome Analysis Toolkit (GATK) v4.6.0.0
+05:44:27.750 INFO  FuncotatorDataSourceDownloader - For support and documentation go to https://software.broadinstitute.org/gatk/
+05:44:27.750 INFO  FuncotatorDataSourceDownloader - Executing as raburajab@g-c-1-7-31 on Linux v4.18.0-305.3.1.el8_4.x86_64 amd64
+05:44:27.750 INFO  FuncotatorDataSourceDownloader - Java runtime: OpenJDK 64-Bit Server VM v17.0.9+9-Ubuntu-122.04
+05:44:27.750 INFO  FuncotatorDataSourceDownloader - Start Date/Time: August 4, 2024 at 5:44:27 AM GMT
+05:44:27.750 INFO  FuncotatorDataSourceDownloader - ------------------------------------------------------------
+05:44:27.750 INFO  FuncotatorDataSourceDownloader - ------------------------------------------------------------
+05:44:27.750 INFO  FuncotatorDataSourceDownloader - HTSJDK Version: 4.1.1
+05:44:27.750 INFO  FuncotatorDataSourceDownloader - Picard Version: 3.2.0
+05:44:27.751 INFO  FuncotatorDataSourceDownloader - Built for Spark Version: 3.5.0
+05:44:27.751 INFO  FuncotatorDataSourceDownloader - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+05:44:27.751 INFO  FuncotatorDataSourceDownloader - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+05:44:27.751 INFO  FuncotatorDataSourceDownloader - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+05:44:27.751 INFO  FuncotatorDataSourceDownloader - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+05:44:27.751 INFO  FuncotatorDataSourceDownloader - Deflater: IntelDeflater
+05:44:27.751 INFO  FuncotatorDataSourceDownloader - Inflater: IntelInflater
+05:44:27.751 INFO  FuncotatorDataSourceDownloader - GCS max retries/reopens: 20
+05:44:27.751 INFO  FuncotatorDataSourceDownloader - Requester pays: disabled
+05:44:27.752 INFO  FuncotatorDataSourceDownloader - Initializing engine
+05:44:27.752 INFO  FuncotatorDataSourceDownloader - Done initializing engine
+05:44:27.752 INFO  FuncotatorDataSourceDownloader - HG38_Germline data sources selected.
+05:44:27.772 INFO  FuncotatorDataSourceDownloader - Collecting expected checksum...
+05:44:28.459 INFO  FuncotatorDataSourceDownloader - Collection complete!
+05:44:28.714 INFO  NioFileCopierWithProgressMeter - Initiating copy from gs://broad-public-datasets/funcotator/funcotator_dataSources.v1.8.hg38.20230908g.tar.gz to file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/slurm-scripts/funcotator_dataSources.v1.8.hg38.20230908g.tar.gz
+05:44:28.717 INFO  NioFileCopierWithProgressMeter - File size: 187764112 bytes (179 MB).
+05:44:28.717 INFO  NioFileCopierWithProgressMeter - Please wait.  This could take a while...
+05:44:29.400 INFO  NioFileCopierWithProgressMeter -     Transfer:  5.00% complete.  Est. time remaining: 17.649 (@9867.24 kbps)
+05:44:29.816 INFO  NioFileCopierWithProgressMeter -     Transfer:  10.00% complete.  Est. time remaining: 10.386 (@15878.99 kbps)
+05:44:30.181 INFO  NioFileCopierWithProgressMeter -     Transfer:  15.00% complete.  Est. time remaining: 08.184 (@19025.55 kbps)
+05:44:30.332 INFO  NioFileCopierWithProgressMeter -     Transfer:  20.00% complete.  Est. time remaining: 04.961 (@29527.44 kbps)
+05:44:30.550 INFO  NioFileCopierWithProgressMeter -     Transfer:  25.00% complete.  Est. time remaining: 04.279 (@32077.00 kbps)
+05:44:30.639 INFO  NioFileCopierWithProgressMeter -     Transfer:  30.00% complete.  Est. time remaining: 02.911 (@43989.26 kbps)
+05:44:30.872 INFO  NioFileCopierWithProgressMeter -     Transfer:  35.00% complete.  Est. time remaining: 02.739 (@43379.96 kbps)
+05:44:31.044 INFO  NioFileCopierWithProgressMeter -     Transfer:  40.00% complete.  Est. time remaining: 02.453 (@44694.30 kbps)
+05:44:31.213 INFO  NioFileCopierWithProgressMeter -     Transfer:  45.00% complete.  Est. time remaining: 02.193 (@45787.44 kbps)
+05:44:31.355 INFO  NioFileCopierWithProgressMeter -     Transfer:  50.00% complete.  Est. time remaining: 01.910 (@47744.87 kbps)
+05:44:31.670 INFO  NioFileCopierWithProgressMeter -     Transfer:  55.00% complete.  Est. time remaining: 01.650 (@49683.86 kbps)
+05:44:31.855 INFO  NioFileCopierWithProgressMeter -     Transfer:  60.00% complete.  Est. time remaining: 01.386 (@52476.41 kbps)
+05:44:31.991 INFO  NioFileCopierWithProgressMeter -     Transfer:  65.00% complete.  Est. time remaining: 01.117 (@56873.86 kbps)
+05:44:32.192 INFO  NioFileCopierWithProgressMeter -     Transfer:  70.00% complete.  Est. time remaining: 00.982 (@55310.45 kbps)
+05:44:32.492 INFO  NioFileCopierWithProgressMeter -     Transfer:  75.00% complete.  Est. time remaining: 00.833 (@54165.20 kbps)
+05:44:32.574 INFO  NioFileCopierWithProgressMeter -     Transfer:  80.00% complete.  Est. time remaining: 00.650 (@55187.92 kbps)
+05:44:32.686 INFO  NioFileCopierWithProgressMeter -     Transfer:  85.00% complete.  Est. time remaining: 00.449 (@59444.08 kbps)
+05:44:32.929 INFO  NioFileCopierWithProgressMeter -     Transfer:  90.00% complete.  Est. time remaining: 00.302 (@57847.20 kbps)
+05:44:33.126 INFO  NioFileCopierWithProgressMeter -     Transfer:  95.00% complete.  Est. time remaining: 00.144 (@57072.12 kbps)
+05:44:33.183 INFO  NioFileCopierWithProgressMeter -     Transfer:  100.00% complete.  Est. time remaining: 00.000 (@65284.86 kbps)
+05:44:33.433 INFO  NioFileCopierWithProgressMeter - Download Complete! - Total elapsed time: 4s
+05:44:33.433 INFO  FuncotatorDataSourceDownloader - Integrity check on downloaded data sources succeeded.
+05:44:33.434 INFO  IOUtils - Extracting data from archive: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/slurm-scripts/funcotator_dataSources.v1.8.hg38.20230908g.tar.gz
+05:44:33.458 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/
+05:44:33.460 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/gencode/
+05:44:33.461 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/gencode/hg38/
+05:44:33.464 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/gencode/hg38/gencode.v43.annotation.REORDERED.gtf.idx
+05:44:33.481 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/gencode/hg38/gencode.v43.pc_transcripts.dict
+05:44:33.632 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/gencode/hg38/gencode.v43.annotation.REORDERED.gtf
+05:44:37.619 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/gencode/hg38/gencode.v43.pc_transcripts.fa
+05:44:38.731 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/gencode/hg38/gencode.config
+05:44:38.734 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/gencode/hg38/gencode.v43.pc_transcripts.fa.fai
+05:44:38.825 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/clinvar/
+05:44:38.827 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/clinvar/hg38/
+05:44:38.828 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/clinvar/hg38/clinvar_vcf.config
+05:44:38.831 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/clinvar/hg38/clinvar_20230717_hg38.vcf
+05:44:41.569 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/clinvar/hg38/clinvar_20230717_hg38.vcf.idx
+05:44:41.604 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/template.config
+05:44:41.606 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/README.txt
+05:44:41.609 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/MANIFEST.txt
+05:44:41.611 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/acmg_rec/
+05:44:41.613 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/acmg_rec/hg38/
+05:44:41.615 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/acmg_rec/hg38/acmg_rec.config
+05:44:41.617 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/acmg_rec/hg38/acmg59_test_cleaned.txt
+05:44:41.620 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/lmm_known/
+05:44:41.621 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/lmm_known/hg38/
+05:44:41.622 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/lmm_known/hg38/lmm_known.config
+05:44:41.626 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/lmm_known/hg38/LMM_Path_LP_VUS5-variants-6-12-18.sorted_liftover_b38.vcf
+05:44:41.629 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/lmm_known/hg38/preprocess_lmm.sh
+05:44:41.631 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/lmm_known/hg38/LMM_Path_LP_VUS5-variants-6-12-18.sorted_liftover_b38.corrected.vcf
+05:44:41.635 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/lmm_known/hg38/LMM_Path_LP_VUS5-variants-6-12-18.sorted_liftover_b38.corrected.vcf.idx
+05:44:41.638 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/gnomAD_exome.tar.gz
+05:44:41.641 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/gnomAD_genome.tar.gz
+05:44:41.643 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/acmg_lof/
+05:44:41.644 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/acmg_lof/hg38/
+05:44:41.645 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/acmg_lof/hg38/acmg_lof.tsv
+05:44:41.648 INFO  IOUtils - Extracting file: funcotator_dataSources.v1.8.hg38.20230908g/acmg_lof/hg38/acmg_lof.config
+05:44:41.650 INFO  FuncotatorDataSourceDownloader - Shutting down engine
+[August 4, 2024 at 5:44:41 AM GMT] org.broadinstitute.hellbender.tools.funcotator.FuncotatorDataSourceDownloader done. Elapsed time: 0.23 minutes.
+Runtime.totalMemory()=285212672
+Tool returned:
+true
+Using GATK jar /gatk/gatk-package-4.6.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.6.0.0-local.jar FuncotatorDataSourceDownloader --germline --hg38 --validate-integrity --extract-after-download
