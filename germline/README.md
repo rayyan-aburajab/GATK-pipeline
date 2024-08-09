@@ -165,7 +165,7 @@ gatk VariantAnnotator \
     -dbsnp "$VARIANT_DIR/Homo_sapiens_assembly38.dbsnp138.vcf"
  ```
 
- ##### Remaining analysis steps will be performed in python (work in progress) 
+ ### Remaining analysis steps will be performed in python (work in progress) 
 
  ### References:
  - Workflow overview: https://gatk.broadinstitute.org/hc/en-us/articles/360035535912-Data-pre-processing-for-variant-discovery
