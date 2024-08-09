@@ -1,5 +1,5 @@
-#ignore archives
-/coh_labs/dits/rayyan/Projects/GATK-pipeline/archived_scripts/
+# Ignore archives directory
+archived_scripts/
 
-#ignore virtual environment
-/coh_labs/dits/rayyan/Projects/GATK-pipeline/python_germline/VCF-analysis/
+# Ignore virtual environment directory
+python_germline/VCF-analysis/
