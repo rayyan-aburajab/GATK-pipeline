@@ -142,19 +142,31 @@ gatk Funcotator \
      --output "$DATA_DIR/C083-000002_GermlineDNA_funcotator.vcf" \
      --output-file-format VCF
  ```
- ### Step 10: analyze
-- Purpose: analyze VCF annotations
-- Input: annotated VCF
-- Output: table (all annotations), txt (funcotator annotations)
+ ### Step 10: splitVCF
+- Purpose: split VCF into separate SNP and INDEL files. 
+- Also adding dbsnp annotations which should have been added in haplotypecaller step.
 ```
-gatk VariantsToTable \
-     -V "$DATA_DIR/C083-000002_GermlineDNA_funcotator.vcf" \
-     -O "$DATA_DIR/C083-000002_GermlineDNA_funcotator_output.table"
+gatk SplitVcfs \
+ -I "$DATA_DIR/C083-000002_GermlineDNA_funcotator.vcf" \
+ -SNP_OUTPUT "$DATA_DIR/C083-000002_GermlineDNA_func_splitSNP.vcf" \
+ -INDEL_OUTPUT "$DATA_DIR/C083-000002_GermlineDNA_func_splitINDEL.vcf" \
+ -STRICT false
 
-cat "$DATA_DIR/C083-000002_GermlineDNA_funcotator.vcf" | grep " Funcotation fields are: " | sed 's/|/\t/g' > "$DATA_DIR/C083-000002_GermlineDNA_func-variants.txt"
-cat "$DATA_DIR/C083-000002_GermlineDNA_funcotator_output.table" | cut -f 16 | sed 's/|/\t/g' >> "$DATA_DIR/C083-000002_GermlineDNA_func-variants.txt"
+ gatk VariantAnnotator \
+    -V "$DATA_DIR/C083-000002_GermlineDNA_func_splitSNP.vcf" \
+    -reference "$REF_DIR/Homo_sapiens_assembly38.fasta" \
+    -O "$DATA_DIR/C083-000002_GermlineDNA_func_splitSNP-dbsnp.vcf" \
+    -dbsnp "$VARIANT_DIR/Homo_sapiens_assembly38.dbsnp138.vcf"
 
+gatk VariantAnnotator \
+    -V "$DATA_DIR/C083-000002_GermlineDNA_func_splitINDEL.vcf" \
+    -reference "$REF_DIR/Homo_sapiens_assembly38.fasta" \
+    -O "$DATA_DIR/C083-000002_GermlineDNA_func_splitINDEL-dbsnp.vcf" \
+    -dbsnp "$VARIANT_DIR/Homo_sapiens_assembly38.dbsnp138.vcf"
  ```
+
+ ##### Remaining analysis steps will be performed in python (work in progress) 
+
  ### References:
  - Workflow overview: https://gatk.broadinstitute.org/hc/en-us/articles/360035535912-Data-pre-processing-for-variant-discovery
  - Generating ubam from fastq: https://gatk.broadinstitute.org/hc/en-us/articles/4403687183515--How-to-Generate-an-unmapped-BAM-from-FASTQ-or-aligned-BAM
