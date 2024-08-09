@@ -1,0 +1,45 @@
+03:13:51.781 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.2.6.1-local.jar!/com/intel/gkl/native/libgkl_compression.so
+03:13:51.924 INFO  BaseRecalibrator - ------------------------------------------------------------
+03:13:51.924 INFO  BaseRecalibrator - The Genome Analysis Toolkit (GATK) v4.2.6.1
+03:13:51.924 INFO  BaseRecalibrator - For support and documentation go to https://software.broadinstitute.org/gatk/
+03:13:51.924 INFO  BaseRecalibrator - Executing as raburajab@g-h-1-8-01 on Linux v4.18.0-305.3.1.el8_4.x86_64 amd64
+03:13:51.924 INFO  BaseRecalibrator - Java runtime: OpenJDK 64-Bit Server VM v1.8.0_242-8u242-b08-0ubuntu3~18.04-b08
+03:13:51.924 INFO  BaseRecalibrator - Start Date/Time: July 24, 2024 3:13:51 AM GMT
+03:13:51.924 INFO  BaseRecalibrator - ------------------------------------------------------------
+03:13:51.924 INFO  BaseRecalibrator - ------------------------------------------------------------
+03:13:51.925 INFO  BaseRecalibrator - HTSJDK Version: 2.24.1
+03:13:51.925 INFO  BaseRecalibrator - Picard Version: 2.27.1
+03:13:51.925 INFO  BaseRecalibrator - Built for Spark Version: 2.4.5
+03:13:51.925 INFO  BaseRecalibrator - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+03:13:51.925 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+03:13:51.925 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+03:13:51.925 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+03:13:51.925 INFO  BaseRecalibrator - Deflater: IntelDeflater
+03:13:51.925 INFO  BaseRecalibrator - Inflater: IntelInflater
+03:13:51.925 INFO  BaseRecalibrator - GCS max retries/reopens: 20
+03:13:51.925 INFO  BaseRecalibrator - Requester pays: disabled
+03:13:51.925 INFO  BaseRecalibrator - Initializing engine
+03:13:52.653 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/reference_gatk/Homo_sapiens_assembly38.dbsnp138.vcf
+03:13:53.216 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/reference_gatk/Homo_sapiens_assembly38.known_indels.vcf.gz
+03:13:53.375 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/reference_gatk/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz
+03:13:53.520 INFO  BaseRecalibrator - Done initializing engine
+03:13:53.520 WARN  BaseRecalibrator - This tool has only been well tested on ILLUMINA-based sequencing data. For other data use at your own risk.
+03:13:53.522 INFO  BaseRecalibrationEngine - The covariates being used here: 
+03:13:53.522 INFO  BaseRecalibrationEngine - 	ReadGroupCovariate
+03:13:53.522 INFO  BaseRecalibrationEngine - 	QualityScoreCovariate
+03:13:53.522 INFO  BaseRecalibrationEngine - 	ContextCovariate
+03:13:53.522 INFO  BaseRecalibrationEngine - 	CycleCovariate
+03:13:53.563 INFO  ProgressMeter - Starting traversal
+03:13:53.563 INFO  ProgressMeter -        Current Locus  Elapsed Minutes       Reads Processed     Reads/Minute
+03:13:53.620 INFO  BaseRecalibrator - Shutting down engine
+[July 24, 2024 3:13:53 AM GMT] org.broadinstitute.hellbender.tools.walkers.bqsr.BaseRecalibrator done. Elapsed time: 0.03 minutes.
+Runtime.totalMemory()=2153775104
+***********************************************************************
+
+A USER ERROR has occurred: Read A01891:52:HF2TWDSX5:4:1532:19018:6965 chr1:10000-10071 is malformed: The input .bam file contains reads with no platform information. First observed at read with name = A01891:52:HF2TWDSX5:4:1532:19018:6965
+
+***********************************************************************
+Set the system property GATK_STACKTRACE_ON_USER_EXCEPTION (--java-options '-DGATK_STACKTRACE_ON_USER_EXCEPTION=true') to print the stack trace.
+Using GATK jar /gatk/gatk-package-4.2.6.1-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.2.6.1-local.jar BaseRecalibrator --I /coh_labs/dits/rayyan/try/C083-000002_GermlineDNA_markedduplicates.bam --R /coh_labs/dits/rayyan/reference_gatk/Homo_sapiens_assembly38.fasta --known-sites /coh_labs/dits/rayyan/reference_gatk/Homo_sapiens_assembly38.dbsnp138.vcf --known-sites /coh_labs/dits/rayyan/reference_gatk/Homo_sapiens_assembly38.known_indels.vcf.gz --known-sites /coh_labs/dits/rayyan/reference_gatk/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz --O /coh_labs/dits/rayyan/try/recal_data_markdup.table

@@ -1,0 +1,39 @@
+21:48:27.432 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.6.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+21:48:27.604 INFO  ApplyVQSR - ------------------------------------------------------------
+21:48:27.607 INFO  ApplyVQSR - The Genome Analysis Toolkit (GATK) v4.6.0.0
+21:48:27.607 INFO  ApplyVQSR - For support and documentation go to https://software.broadinstitute.org/gatk/
+21:48:27.607 INFO  ApplyVQSR - Executing as raburajab@g-c-1-4-01 on Linux v4.18.0-305.3.1.el8_4.x86_64 amd64
+21:48:27.607 INFO  ApplyVQSR - Java runtime: OpenJDK 64-Bit Server VM v17.0.9+9-Ubuntu-122.04
+21:48:27.607 INFO  ApplyVQSR - Start Date/Time: August 1, 2024 at 9:48:27 PM GMT
+21:48:27.607 INFO  ApplyVQSR - ------------------------------------------------------------
+21:48:27.607 INFO  ApplyVQSR - ------------------------------------------------------------
+21:48:27.608 INFO  ApplyVQSR - HTSJDK Version: 4.1.1
+21:48:27.608 INFO  ApplyVQSR - Picard Version: 3.2.0
+21:48:27.608 INFO  ApplyVQSR - Built for Spark Version: 3.5.0
+21:48:27.608 INFO  ApplyVQSR - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+21:48:27.608 INFO  ApplyVQSR - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+21:48:27.608 INFO  ApplyVQSR - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+21:48:27.608 INFO  ApplyVQSR - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+21:48:27.608 INFO  ApplyVQSR - Deflater: IntelDeflater
+21:48:27.608 INFO  ApplyVQSR - Inflater: IntelInflater
+21:48:27.608 INFO  ApplyVQSR - GCS max retries/reopens: 20
+21:48:27.609 INFO  ApplyVQSR - Requester pays: disabled
+21:48:27.609 INFO  ApplyVQSR - Initializing engine
+21:48:27.767 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/Data/C083-000002/AnalysisData2/C083-000002_GermlineDNA_VSQR-snp.recal
+21:48:27.837 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/Data/C083-000002/AnalysisData2/C083-000002_GermlineDNA_genotype.vcf.gz
+21:48:27.997 INFO  ApplyVQSR - Done initializing engine
+21:48:27.999 INFO  ApplyVQSR - Read tranche TruthSensitivityTranche targetTruthSensitivity=90.00 minVQSLod=7.4961 known=(163714 @ 2.4251) novel=(4957 @ 1.6545) truthSites(83509 accessible, 75158 called), name=VQSRTrancheSNP0.00to90.00]
+21:48:27.999 INFO  ApplyVQSR - Read tranche TruthSensitivityTranche targetTruthSensitivity=99.00 minVQSLod=0.7720 known=(230383 @ 2.4814) novel=(15818 @ 1.6591) truthSites(83509 accessible, 82673 called), name=VQSRTrancheSNP90.00to99.00]
+21:48:28.000 INFO  ApplyVQSR - Read tranche TruthSensitivityTranche targetTruthSensitivity=99.90 minVQSLod=-4.1329 known=(241917 @ 2.4700) novel=(20203 @ 1.6362) truthSites(83509 accessible, 83425 called), name=VQSRTrancheSNP99.00to99.90]
+21:48:28.000 INFO  ApplyVQSR - Read tranche TruthSensitivityTranche targetTruthSensitivity=100.00 minVQSLod=-2070.4718 known=(246178 @ 2.4604) novel=(22856 @ 1.6162) truthSites(83509 accessible, 83509 called), name=VQSRTrancheSNP99.90to100.00]
+21:48:28.020 INFO  ApplyVQSR - Keeping all variants in tranche TruthSensitivityTranche targetTruthSensitivity=99.00 minVQSLod=0.7720 known=(230383 @ 2.4814) novel=(15818 @ 1.6591) truthSites(83509 accessible, 82673 called), name=VQSRTrancheSNP90.00to99.00]
+21:48:28.044 INFO  ProgressMeter - Starting traversal
+21:48:28.044 INFO  ProgressMeter -        Current Locus  Elapsed Minutes    Variants Processed  Variants/Minute
+21:48:31.874 INFO  ProgressMeter - chrUn_KI270508v1:1382              0.1                320818        5028495.3
+21:48:31.875 INFO  ProgressMeter - Traversal complete. Processed 320818 total variants in 0.1 minutes.
+21:48:31.935 INFO  ApplyVQSR - Shutting down engine
+[August 1, 2024 at 9:48:31 PM GMT] org.broadinstitute.hellbender.tools.walkers.vqsr.ApplyVQSR done. Elapsed time: 0.08 minutes.
+Runtime.totalMemory()=1224736768
+Using GATK jar /gatk/gatk-package-4.6.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.6.0.0-local.jar ApplyVQSR -R /coh_labs/dits/rayyan/References/GATK_assembly38/Homo_sapiens_assembly38.fasta -V /coh_labs/dits/rayyan/Data/C083-000002/AnalysisData2/C083-000002_GermlineDNA_genotype.vcf.gz -O /coh_labs/dits/rayyan/Data/C083-000002/AnalysisData2/C083-000002_GermlineDNA_VSQR-snp.vcf.gz --truth-sensitivity-filter-level 99.0 --tranches-file /coh_labs/dits/rayyan/Data/C083-000002/AnalysisData2/C083-000002_GermlineDNA_VSQR-snp.tranches --recal-file /coh_labs/dits/rayyan/Data/C083-000002/AnalysisData2/C083-000002_GermlineDNA_VSQR-snp.recal -mode SNP

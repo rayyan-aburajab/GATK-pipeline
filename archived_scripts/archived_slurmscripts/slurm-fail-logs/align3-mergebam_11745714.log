@@ -1,0 +1,20 @@
+22:09:44.346 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.2.6.1-local.jar!/com/intel/gkl/native/libgkl_compression.so
+[Sun Jul 21 22:09:44 GMT 2024] MergeBamAlignment --UNMAPPED_BAM /coh_labs/dits/rayyan/try/C083-000002_GermlineDNA_markilluminaadapters.bam --ALIGNED_BAM /coh_labs/dits/rayyan/try/C083-000002_GermlineDNA_bwamem.sam --OUTPUT /coh_labs/dits/rayyan/try/C083-000002_GermlineDNA_mergebamalignment.bam --CLIP_ADAPTERS false --MAX_INSERTIONS_OR_DELETIONS -1 --ATTRIBUTES_TO_RETAIN XS --PRIMARY_ALIGNMENT_STRATEGY MostDistant --CLIP_OVERLAPPING_READS true --INCLUDE_SECONDARY_ALIGNMENTS true --CREATE_INDEX true --REFERENCE_SEQUENCE /coh_labs/dits/rayyan/reference/GCF_000001405.40_GRCh38.p14_genomic.fna --ADD_PG_TAG_TO_READS true --PAIRED_RUN true --IS_BISULFITE_SEQUENCE false --ALIGNED_READS_ONLY false --ATTRIBUTES_TO_REVERSE OQ --ATTRIBUTES_TO_REVERSE U2 --ATTRIBUTES_TO_REVERSE_COMPLEMENT E2 --ATTRIBUTES_TO_REVERSE_COMPLEMENT SQ --READ1_TRIM 0 --READ2_TRIM 0 --ALIGNER_PROPER_PAIR_FLAGS false --SORT_ORDER coordinate --HARD_CLIP_OVERLAPPING_READS false --ADD_MATE_CIGAR true --UNMAP_CONTAMINANT_READS false --MIN_UNCLIPPED_BASES 32 --MATCHING_DICTIONARY_TAGS M5 --MATCHING_DICTIONARY_TAGS LN --UNMAPPED_READ_STRATEGY DO_NOT_CHANGE --VERBOSITY INFO --QUIET false --VALIDATION_STRINGENCY STRICT --COMPRESSION_LEVEL 2 --MAX_RECORDS_IN_RAM 500000 --CREATE_MD5_FILE false --GA4GH_CLIENT_SECRETS client_secrets.json --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Sun Jul 21 22:09:44 GMT 2024] Executing as raburajab@g-c-1-7-23 on Linux 4.18.0-305.3.1.el8_4.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_242-8u242-b08-0ubuntu3~18.04-b08; Deflater: Intel; Inflater: Intel; Provider GCS is available; Picard version: Version:4.2.6.1
+[Sun Jul 21 22:09:44 GMT 2024] picard.sam.MergeBamAlignment done. Elapsed time: 0.00 minutes.
+Runtime.totalMemory()=2287992832
+To get help, see http://broadinstitute.github.io/picard/index.html#GettingHelp
+htsjdk.samtools.SAMException: Cannot read non-existent file: file:///coh_labs/dits/rayyan/reference/GCF_000001405.40_GRCh38.p14_genomic.fna
+	at htsjdk.samtools.util.IOUtil.assertFileIsReadable(IOUtil.java:498)
+	at htsjdk.samtools.util.IOUtil.assertFileIsReadable(IOUtil.java:485)
+	at picard.sam.AbstractAlignmentMerger.<init>(AbstractAlignmentMerger.java:284)
+	at picard.sam.SamAlignmentMerger.<init>(SamAlignmentMerger.java:143)
+	at picard.sam.MergeBamAlignment.doWork(MergeBamAlignment.java:357)
+	at picard.cmdline.CommandLineProgram.instanceMain(CommandLineProgram.java:308)
+	at org.broadinstitute.hellbender.cmdline.PicardCommandLineProgramExecutor.instanceMain(PicardCommandLineProgramExecutor.java:37)
+	at org.broadinstitute.hellbender.Main.runCommandLineProgram(Main.java:160)
+	at org.broadinstitute.hellbender.Main.mainEntry(Main.java:203)
+	at org.broadinstitute.hellbender.Main.main(Main.java:289)
+Using GATK jar /gatk/gatk-package-4.2.6.1-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.2.6.1-local.jar MergeBamAlignment --R /coh_labs/dits/rayyan/reference/GCF_000001405.40_GRCh38.p14_genomic.fna --ALIGNED_BAM /coh_labs/dits/rayyan/try/C083-000002_GermlineDNA_bwamem.sam --UNMAPPED_BAM /coh_labs/dits/rayyan/try/C083-000002_GermlineDNA_markilluminaadapters.bam --OUTPUT /coh_labs/dits/rayyan/try/C083-000002_GermlineDNA_mergebamalignment.bam --CREATE_INDEX true --CLIP_ADAPTERS false --CLIP_OVERLAPPING_READS true --INCLUDE_SECONDARY_ALIGNMENTS true --MAX_INSERTIONS_OR_DELETIONS -1 --PRIMARY_ALIGNMENT_STRATEGY MostDistant --ATTRIBUTES_TO_RETAIN XS
