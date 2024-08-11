@@ -8,14 +8,18 @@ INDEL_VCF = "/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_germline/C083-0
 #vcf_reader = vcf.Reader(open(SNP_VCF, 'r'))
 vcf_reader = vcf.Reader(open(INDEL_VCF, 'r'))
 
-
+#creating an empty list
 vcf_data = []
 
-#separate metadata fields (keeping funcotator as one for now, breaking up "INFO" and "GENOTYPE")
+#separate metadata fields
+    #keeping "FUNCOTATION" as one for now
+    #breaking up "INFO" (record.info.get) and "GENOTYPE" (record.genotype)
+    #change empty "FILTER" entries to PASS 
+
 for record in vcf_reader:
     vcf_record = [
         record.CHROM, record.POS, record.ID, record.REF, record.ALT, record.QUAL, 
-        ';'.join(record.FILTER) if record.FILTER else 'PASS',
+        record.FILTER[0] if record.FILTER else 'PASS',
         record.INFO.get('AC', None), record.INFO.get('AF', None), record.INFO.get('AN', None),
         record.INFO.get('BaseQRankSum', None), record.INFO.get('CNN_2D', None), 
         record.INFO.get('DB', None), record.INFO.get('DP', None),
@@ -23,12 +27,13 @@ for record in vcf_reader:
         record.INFO.get('InbreedingCoeff', None), record.INFO.get('MLEAC', None), record.INFO.get('MLEAF', None),
         record.INFO.get('MQ', None), record.INFO.get('MQRankSum', None), record.INFO.get('QD', None),
         record.INFO.get('ReadPosRankSum', None), record.INFO.get('SOR', None),
-        record.genotype('C083-000002_GermlineDNA').data.GT,
-        record.genotype('C083-000002_GermlineDNA').data.AD,
-        record.genotype('C083-000002_GermlineDNA').data.DP,
-        record.genotype('C083-000002_GermlineDNA').data.GQ,
+        record.genotype('C083-000002_GermlineDNA').data.GT, record.genotype('C083-000002_GermlineDNA').data.AD,
+        record.genotype('C083-000002_GermlineDNA').data.DP, record.genotype('C083-000002_GermlineDNA').data.GQ,
         record.genotype('C083-000002_GermlineDNA').data.PL
     ]
+
+# if theres multiple filters need to use semicolon to join them into a string:
+    # ';'.join(record.FILTER) if record.FILTER else 'PASS'
 
     vcf_data.append(vcf_record)
 
@@ -42,4 +47,5 @@ df_vcf = pd.DataFrame(vcf_data, columns=columns)
 
 print(df_vcf.head())
 
-df_vcf.to_csv('/coh_labs/dits/rayyan/Data/C083-000002/PythoAnalysis_germline/C083-000002_GermlineDNA_SNP_full-dataset.csv', index=False)
+#df_vcf.to_csv('/coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_germline/C083-000002_GermlineDNA_SNP_fulldata_aslist.csv', index=False)
+df_vcf.to_csv('/coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_germline/C083-000002_GermlineDNA_INDEL_fulldata_aslist.csv', index=False)
