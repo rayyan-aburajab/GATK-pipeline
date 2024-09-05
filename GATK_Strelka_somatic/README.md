@@ -1,15 +1,24 @@
-# GATK-pipeline
+# GATK & Strelka2 Pipeline
 
-## GATK Best Practices Pipeline - Somatic (Tumor DNA)
+## Somatic (Tumor DNA)
 
-### GATK Version (4.6.0) - singularity container
+#### GATK Version (4.6.0) - singularity container
 ```
 module load singularity
 export SINGULARITY_BIND="/coh_labs/dits/rayyan:/coh_labs/dits/rayyan"
 
 singularity exec "$Singularity_GATK" \
 ```
-## Part I: Sample Pre-Processing
+
+#### Strelka2 Version (4.6.0) - singularity container
+```
+module load singularity
+export SINGULARITY_BIND="/coh_labs/dits/rayyan:/coh_labs/dits/rayyan"
+
+singularity exec "$Singularity_strelka" \
+```
+
+## Part I: GATK Pre-Processing
 
 ### Step 1: fastq-to-ubam
 - Purpose: Generate compatible unmapped bam input for GATK best practices workflow
@@ -78,15 +87,64 @@ gatk  MarkDuplicatesSpark \
  --R "$REF_DIR/Homo_sapiens_assembly38.fasta" \
  --M "$DATA_DIR/C083-000002_TumorDNA_markeddups_metrics.txt"
  ```
-### Step 5: baserecalibration
-[optional - skipping in this workflow]
 
- ## Part II: Calling GATK Variants
-
-### Step 6: 
+ ## Part II: Strelka2 Variant Calling
 - Purpose: 
 - Input: 
 - Output: 
-```
 
+### Step 5a: configureStrelkaSomaticWorkflow
+```
+configureStrelkaSomaticWorkflow.py \
+ --normalBam "$DATA_DIR_normal/C083-000002_GermlineDNA_markedduplicates.bam" \
+ --tumorBam "$DATA_DIR_tumor/C083-000002_TumorDNA_markedduplicates.bam" \
+ --referenceFasta "$REF_DIR/Homo_sapiens_assembly38.fasta" \
+ --runDir "$DATA_DIR_tumor"
+ ```
+### Step 5b: runWorkflow
+
+ ```
+"$DATA_DIR_tumor/runWorkflow.py" \
+ --mode local \
+ --jobs 8
+ ```
+## Part III: GATK Post-Processing
+
+### Step 7: Funcotator
+- Purpose: annotates variants based on known datasets.
+- Input: VCF
+- Output: VCF
+```
+gatk Funcotator \
+     --variant "$DATA_DIR/somatic.snvs.filtered.vcf" \
+     --reference "$REF_DIR/Homo_sapiens_assembly38.fasta" \
+     --ref-version hg38 \
+     --data-sources-path "$gnomAD_DIR/" \
+     --output "$DATA_DIR/somatic.snvs.filtered.funcotator.vcf" \
+     --output-file-format VCF
+
+gatk Funcotator \
+     --variant "$DATA_DIR/somatic.indels.filtered.vcf" \
+     --reference "$REF_DIR/Homo_sapiens_assembly38.fasta" \
+     --ref-version hg38 \
+     --data-sources-path "$gnomAD_DIR/" \
+     --output "$DATA_DIR/somatic.indels.filtered.funcotator.vcf" \
+     --output-file-format VCF
+ ```
+### Step 8: AnnotatedbSNP
+- Purpose: annotates variants based on known datasets.
+- Input: VCF
+- Output: VCF
+```
+gatk VariantAnnotator \
+    -V "$DATA_DIR/somatic.snvs.filtered.funcotator.vcf" \
+    -reference "$REF_DIR/Homo_sapiens_assembly38.fasta" \
+    -O "$DATA_DIR/somatic.snvs.filtered.funcotator-dbsnp.vcf" \
+    -dbsnp "$VARIANT_DIR/Homo_sapiens_assembly38.dbsnp138.vcf"
+
+gatk VariantAnnotator \
+    -V "$DATA_DIR/somatic.indels.filtered.funcotator.vcf" \
+    -reference "$REF_DIR/Homo_sapiens_assembly38.fasta" \
+    -O "$DATA_DIR/somatic.indels.filtered.funcotator-dbsnp.vcf" \
+    -dbsnp "$VARIANT_DIR/Homo_sapiens_assembly38.dbsnp138.vcf"
  ```
