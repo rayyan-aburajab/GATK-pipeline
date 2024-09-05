@@ -2,4 +2,6 @@
 archived_scripts/
 
 # Ignore virtual environment directory
-python_germline/VCF-analysis/
+python_scripts/VCF-analysis/
+
+python_scripts/scripts_archive/

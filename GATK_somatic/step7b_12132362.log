@@ -1,0 +1,188 @@
+20:06:03.086 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.6.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+20:06:03.314 INFO  Funcotator - ------------------------------------------------------------
+20:06:03.319 INFO  Funcotator - The Genome Analysis Toolkit (GATK) v4.6.0.0
+20:06:03.319 INFO  Funcotator - For support and documentation go to https://software.broadinstitute.org/gatk/
+20:06:03.319 INFO  Funcotator - Executing as raburajab@g-h-1-9-33 on Linux v4.18.0-305.3.1.el8_4.x86_64 amd64
+20:06:03.319 INFO  Funcotator - Java runtime: OpenJDK 64-Bit Server VM v17.0.9+9-Ubuntu-122.04
+20:06:03.319 INFO  Funcotator - Start Date/Time: August 16, 2024 at 8:06:03 PM GMT
+20:06:03.319 INFO  Funcotator - ------------------------------------------------------------
+20:06:03.319 INFO  Funcotator - ------------------------------------------------------------
+20:06:03.320 INFO  Funcotator - HTSJDK Version: 4.1.1
+20:06:03.320 INFO  Funcotator - Picard Version: 3.2.0
+20:06:03.320 INFO  Funcotator - Built for Spark Version: 3.5.0
+20:06:03.320 INFO  Funcotator - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+20:06:03.320 INFO  Funcotator - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+20:06:03.320 INFO  Funcotator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+20:06:03.320 INFO  Funcotator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+20:06:03.321 INFO  Funcotator - Deflater: IntelDeflater
+20:06:03.321 INFO  Funcotator - Inflater: IntelInflater
+20:06:03.321 INFO  Funcotator - GCS max retries/reopens: 20
+20:06:03.321 INFO  Funcotator - Requester pays: disabled
+20:06:03.321 INFO  Funcotator - Initializing engine
+20:06:03.511 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/results/variants/somatic.snvs.filtered.vcf
+20:06:03.609 INFO  Funcotator - Done initializing engine
+20:06:03.610 INFO  Funcotator - Validating sequence dictionaries...
+20:06:03.624 INFO  Funcotator - Processing user transcripts/defaults/overrides...
+20:06:03.624 INFO  Funcotator - Initializing data sources...
+20:06:03.626 INFO  DataSourceUtils - Initializing data sources from directory: /coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/
+20:06:03.630 WARN  DataSourceUtils - README file has improperly formatted version string: Version:          v1.8.hg38.20230908s
+20:06:03.630 WARN  DataSourceUtils - Unable to read version information from data sources info/readme file: file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/MANIFEST.txt
+20:06:03.630 INFO  DataSourceUtils - Data sources source: ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/funcotator/funcotator_dataSources.v1.8.hg38.20230908s.tar.gz
+20:06:03.630 INFO  DataSourceUtils - Data sources alternate source: gs://broad-public-datasets/funcotator/funcotator_dataSources.v1.8.hg38.20230908s.tar.gz
+20:06:03.639 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode_xhgnc_v110_38.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode_xhgnc/hg38/gencode_xhgnc_v110_38.tsv
+20:06:03.641 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/hg38_All_20180418.vcf.gz -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/dbsnp/hg38/hg38_All_20180418.vcf.gz
+20:06:03.644 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/hgnc_download_Jun282023.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/hgnc/hg38/hgnc_download_Jun282023.tsv
+20:06:03.647 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/achilles_lineage_results.import.txt -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/achilles/hg38/achilles_lineage_results.import.txt
+20:06:03.649 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/cosmic_tissue.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic_tissue/hg38/cosmic_tissue.tsv
+20:06:03.651 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/clinvar_20230717_hg38.vcf -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/clinvar/hg38/clinvar_20230717_hg38.vcf
+20:06:03.653 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/Cosmic.db -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic/hg38/Cosmic.db
+20:06:03.656 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/Familial_Cancer_Genes.no_dupes.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/familial/hg38/Familial_Cancer_Genes.no_dupes.tsv
+20:06:03.658 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/cosmic_fusion.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic_fusion/hg38/cosmic_fusion.tsv
+20:06:03.660 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/oreganno.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/oreganno/hg38/oreganno.tsv
+20:06:03.664 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/simple_uniprot_Dec012014.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/simple_uniprot/hg38/simple_uniprot_Dec012014.tsv
+20:06:03.667 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode_xrefseq_v110_38.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode_xrefseq/hg38/gencode_xrefseq_v110_38.tsv
+20:06:03.669 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode.v43.annotation.REORDERED.gtf -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode/hg38/gencode.v43.annotation.REORDERED.gtf
+20:06:03.669 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode.v43.pc_transcripts.fa -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode/hg38/gencode.v43.pc_transcripts.fa
+20:06:03.669 INFO  Funcotator - Finalizing data sources (this step can be long if data sources are cloud-based)...
+20:06:03.670 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode_xhgnc_v110_38.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode_xhgnc/hg38/gencode_xhgnc_v110_38.tsv
+20:06:04.592 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/hg38_All_20180418.vcf.gz -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/dbsnp/hg38/hg38_All_20180418.vcf.gz
+20:06:04.594 INFO  DataSourceUtils - Setting lookahead cache for data source: dbSNP : 100000
+20:06:04.600 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/dbsnp/hg38/hg38_All_20180418.vcf.gz
+20:06:04.662 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/hg38_All_20180418.vcf.gz -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/dbsnp/hg38/hg38_All_20180418.vcf.gz
+20:06:04.721 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/dbsnp/hg38/hg38_All_20180418.vcf.gz
+20:06:04.753 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/hgnc_download_Jun282023.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/hgnc/hg38/hgnc_download_Jun282023.tsv
+20:06:04.877 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/achilles_lineage_results.import.txt -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/achilles/hg38/achilles_lineage_results.import.txt
+20:06:04.879 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/cosmic_tissue.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic_tissue/hg38/cosmic_tissue.tsv
+20:06:04.944 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/clinvar_20230717_hg38.vcf -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/clinvar/hg38/clinvar_20230717_hg38.vcf
+20:06:04.944 INFO  DataSourceUtils - Setting lookahead cache for data source: ClinVar_VCF : 100000
+20:06:04.947 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/clinvar/hg38/clinvar_20230717_hg38.vcf
+20:06:05.011 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/clinvar_20230717_hg38.vcf -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/clinvar/hg38/clinvar_20230717_hg38.vcf
+20:06:05.058 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/clinvar/hg38/clinvar_20230717_hg38.vcf
+20:06:05.183 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/Cosmic.db -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic/hg38/Cosmic.db
+20:06:05.456 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/Familial_Cancer_Genes.no_dupes.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/familial/hg38/Familial_Cancer_Genes.no_dupes.tsv
+20:06:05.457 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/cosmic_fusion.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic_fusion/hg38/cosmic_fusion.tsv
+20:06:05.458 INFO  DataSourceUtils - Setting lookahead cache for data source: Oreganno : 100000
+20:06:05.460 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/oreganno.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/oreganno/hg38/oreganno.tsv
+20:06:05.462 INFO  FeatureManager - Using codec XsvLocatableTableCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/oreganno/hg38/oreganno.config
+20:06:05.477 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/oreganno.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/oreganno/hg38/oreganno.tsv
+20:06:05.478 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/oreganno.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/oreganno/hg38/oreganno.tsv
+WARNING	2024-08-16 20:06:05	AsciiLineReader	Creating an indexable source for an AsciiFeatureCodec using a stream that is neither a PositionalBufferedStream nor a BlockCompressedInputStream
+20:06:05.481 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/simple_uniprot_Dec012014.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/simple_uniprot/hg38/simple_uniprot_Dec012014.tsv
+20:06:05.538 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode_xrefseq_v110_38.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode_xrefseq/hg38/gencode_xrefseq_v110_38.tsv
+20:06:05.812 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode.v43.annotation.REORDERED.gtf -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode/hg38/gencode.v43.annotation.REORDERED.gtf
+20:06:05.812 INFO  DataSourceUtils - Setting lookahead cache for data source: Gencode : 100000
+20:06:05.816 INFO  FeatureManager - Using codec GencodeGtfCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode/hg38/gencode.v43.annotation.REORDERED.gtf
+20:06:05.827 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode.v43.pc_transcripts.fa -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode/hg38/gencode.v43.pc_transcripts.fa
+20:06:08.310 INFO  Funcotator - Initializing Funcotator Engine...
+20:06:08.317 INFO  FuncotatorEngine - Using given VCF and Reference.  No conversion required.
+20:06:08.321 INFO  Funcotator - Creating a VCF file for output: file:/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/results/variants/somatic.snvs.filtered.funcotator.vcf
+20:06:08.430 INFO  ProgressMeter - Starting traversal
+20:06:08.431 INFO  ProgressMeter -        Current Locus  Elapsed Minutes    Variants Processed  Variants/Minute
+20:08:24.520 INFO  ProgressMeter -        chr8:30180622              2.3                  1000            440.9
+20:09:22.591 WARN  GencodeFuncotationFactory - Attempted to process transcript information for transcript WITHOUT sequence data.  Ignoring sequence information for Gencode Transcript ID: ENST00000454784.10
+20:09:22.689 WARN  GencodeFuncotationFactory - Attempted to process transcript information for transcript WITHOUT sequence data.  Ignoring sequence information for Gencode Transcript ID: ENST00000454784.10
+20:10:30.784 INFO  ProgressMeter -       chr17:82032992              4.4                  2000            457.4
+20:11:15.438 INFO  ProgressMeter -       chr17:82032992              5.1                  2451            479.0
+20:11:15.438 INFO  ProgressMeter - Traversal complete. Processed 2451 total variants in 5.1 minutes.
+20:11:15.443 INFO  VcfFuncotationFactory - ClinVar_VCF 20230717_hg38 cache hits/total: 0/0
+20:11:15.444 INFO  VcfFuncotationFactory - dbSNP 9606_b151 cache hits/total: 0/1641
+20:11:15.536 INFO  Funcotator - Shutting down engine
+[August 16, 2024 at 8:11:15 PM GMT] org.broadinstitute.hellbender.tools.funcotator.Funcotator done. Elapsed time: 5.21 minutes.
+Runtime.totalMemory()=4445962240
+Tool returned:
+true
+Using GATK jar /gatk/gatk-package-4.6.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.6.0.0-local.jar Funcotator --variant /coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/results/variants/somatic.snvs.filtered.vcf --reference /coh_labs/dits/rayyan/References/GATK_assembly38/Homo_sapiens_assembly38.fasta --ref-version hg38 --data-sources-path /coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/ --output /coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/results/variants/somatic.snvs.filtered.funcotator.vcf --output-file-format VCF
+20:11:17.615 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.6.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+20:11:17.770 INFO  Funcotator - ------------------------------------------------------------
+20:11:17.773 INFO  Funcotator - The Genome Analysis Toolkit (GATK) v4.6.0.0
+20:11:17.773 INFO  Funcotator - For support and documentation go to https://software.broadinstitute.org/gatk/
+20:11:17.773 INFO  Funcotator - Executing as raburajab@g-h-1-9-33 on Linux v4.18.0-305.3.1.el8_4.x86_64 amd64
+20:11:17.773 INFO  Funcotator - Java runtime: OpenJDK 64-Bit Server VM v17.0.9+9-Ubuntu-122.04
+20:11:17.773 INFO  Funcotator - Start Date/Time: August 16, 2024 at 8:11:17 PM GMT
+20:11:17.773 INFO  Funcotator - ------------------------------------------------------------
+20:11:17.773 INFO  Funcotator - ------------------------------------------------------------
+20:11:17.773 INFO  Funcotator - HTSJDK Version: 4.1.1
+20:11:17.774 INFO  Funcotator - Picard Version: 3.2.0
+20:11:17.774 INFO  Funcotator - Built for Spark Version: 3.5.0
+20:11:17.774 INFO  Funcotator - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+20:11:17.774 INFO  Funcotator - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+20:11:17.774 INFO  Funcotator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+20:11:17.774 INFO  Funcotator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+20:11:17.774 INFO  Funcotator - Deflater: IntelDeflater
+20:11:17.774 INFO  Funcotator - Inflater: IntelInflater
+20:11:17.774 INFO  Funcotator - GCS max retries/reopens: 20
+20:11:17.774 INFO  Funcotator - Requester pays: disabled
+20:11:17.775 INFO  Funcotator - Initializing engine
+20:11:17.934 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/results/variants/somatic.indels.filtered.vcf
+20:11:18.032 INFO  Funcotator - Done initializing engine
+20:11:18.033 INFO  Funcotator - Validating sequence dictionaries...
+20:11:18.044 INFO  Funcotator - Processing user transcripts/defaults/overrides...
+20:11:18.044 INFO  Funcotator - Initializing data sources...
+20:11:18.046 INFO  DataSourceUtils - Initializing data sources from directory: /coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/
+20:11:18.046 WARN  DataSourceUtils - README file has improperly formatted version string: Version:          v1.8.hg38.20230908s
+20:11:18.047 WARN  DataSourceUtils - Unable to read version information from data sources info/readme file: file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/MANIFEST.txt
+20:11:18.047 INFO  DataSourceUtils - Data sources source: ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/funcotator/funcotator_dataSources.v1.8.hg38.20230908s.tar.gz
+20:11:18.047 INFO  DataSourceUtils - Data sources alternate source: gs://broad-public-datasets/funcotator/funcotator_dataSources.v1.8.hg38.20230908s.tar.gz
+20:11:18.052 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode_xhgnc_v110_38.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode_xhgnc/hg38/gencode_xhgnc_v110_38.tsv
+20:11:18.053 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/hg38_All_20180418.vcf.gz -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/dbsnp/hg38/hg38_All_20180418.vcf.gz
+20:11:18.054 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/hgnc_download_Jun282023.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/hgnc/hg38/hgnc_download_Jun282023.tsv
+20:11:18.055 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/achilles_lineage_results.import.txt -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/achilles/hg38/achilles_lineage_results.import.txt
+20:11:18.057 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/cosmic_tissue.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic_tissue/hg38/cosmic_tissue.tsv
+20:11:18.059 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/clinvar_20230717_hg38.vcf -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/clinvar/hg38/clinvar_20230717_hg38.vcf
+20:11:18.060 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/Cosmic.db -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic/hg38/Cosmic.db
+20:11:18.061 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/Familial_Cancer_Genes.no_dupes.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/familial/hg38/Familial_Cancer_Genes.no_dupes.tsv
+20:11:18.062 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/cosmic_fusion.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic_fusion/hg38/cosmic_fusion.tsv
+20:11:18.063 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/oreganno.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/oreganno/hg38/oreganno.tsv
+20:11:18.064 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/simple_uniprot_Dec012014.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/simple_uniprot/hg38/simple_uniprot_Dec012014.tsv
+20:11:18.065 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode_xrefseq_v110_38.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode_xrefseq/hg38/gencode_xrefseq_v110_38.tsv
+20:11:18.066 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode.v43.annotation.REORDERED.gtf -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode/hg38/gencode.v43.annotation.REORDERED.gtf
+20:11:18.066 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode.v43.pc_transcripts.fa -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode/hg38/gencode.v43.pc_transcripts.fa
+20:11:18.066 INFO  Funcotator - Finalizing data sources (this step can be long if data sources are cloud-based)...
+20:11:18.067 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode_xhgnc_v110_38.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode_xhgnc/hg38/gencode_xhgnc_v110_38.tsv
+20:11:18.828 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/hg38_All_20180418.vcf.gz -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/dbsnp/hg38/hg38_All_20180418.vcf.gz
+20:11:18.832 INFO  DataSourceUtils - Setting lookahead cache for data source: dbSNP : 100000
+20:11:18.841 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/dbsnp/hg38/hg38_All_20180418.vcf.gz
+20:11:18.902 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/hg38_All_20180418.vcf.gz -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/dbsnp/hg38/hg38_All_20180418.vcf.gz
+20:11:18.972 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/dbsnp/hg38/hg38_All_20180418.vcf.gz
+20:11:19.053 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/hgnc_download_Jun282023.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/hgnc/hg38/hgnc_download_Jun282023.tsv
+20:11:19.175 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/achilles_lineage_results.import.txt -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/achilles/hg38/achilles_lineage_results.import.txt
+20:11:19.176 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/cosmic_tissue.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic_tissue/hg38/cosmic_tissue.tsv
+20:11:19.238 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/clinvar_20230717_hg38.vcf -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/clinvar/hg38/clinvar_20230717_hg38.vcf
+20:11:19.238 INFO  DataSourceUtils - Setting lookahead cache for data source: ClinVar_VCF : 100000
+20:11:19.240 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/clinvar/hg38/clinvar_20230717_hg38.vcf
+20:11:19.301 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/clinvar_20230717_hg38.vcf -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/clinvar/hg38/clinvar_20230717_hg38.vcf
+20:11:19.352 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/clinvar/hg38/clinvar_20230717_hg38.vcf
+20:11:19.397 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/Cosmic.db -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic/hg38/Cosmic.db
+20:11:19.499 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/Familial_Cancer_Genes.no_dupes.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/familial/hg38/Familial_Cancer_Genes.no_dupes.tsv
+20:11:19.499 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/cosmic_fusion.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/cosmic_fusion/hg38/cosmic_fusion.tsv
+20:11:19.500 INFO  DataSourceUtils - Setting lookahead cache for data source: Oreganno : 100000
+20:11:19.502 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/oreganno.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/oreganno/hg38/oreganno.tsv
+20:11:19.503 INFO  FeatureManager - Using codec XsvLocatableTableCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/oreganno/hg38/oreganno.config
+20:11:19.515 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/oreganno.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/oreganno/hg38/oreganno.tsv
+20:11:19.515 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/oreganno.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/oreganno/hg38/oreganno.tsv
+WARNING	2024-08-16 20:11:19	AsciiLineReader	Creating an indexable source for an AsciiFeatureCodec using a stream that is neither a PositionalBufferedStream nor a BlockCompressedInputStream
+20:11:19.518 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/simple_uniprot_Dec012014.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/simple_uniprot/hg38/simple_uniprot_Dec012014.tsv
+20:11:19.570 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode_xrefseq_v110_38.tsv -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode_xrefseq/hg38/gencode_xrefseq_v110_38.tsv
+20:11:19.889 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode.v43.annotation.REORDERED.gtf -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode/hg38/gencode.v43.annotation.REORDERED.gtf
+20:11:19.889 INFO  DataSourceUtils - Setting lookahead cache for data source: Gencode : 100000
+20:11:19.891 INFO  FeatureManager - Using codec GencodeGtfCodec to read file file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode/hg38/gencode.v43.annotation.REORDERED.gtf
+20:11:19.897 INFO  DataSourceUtils - Resolved data source file path: file:///coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic/gencode.v43.pc_transcripts.fa -> file:///coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/gencode/hg38/gencode.v43.pc_transcripts.fa
+20:11:22.039 INFO  Funcotator - Initializing Funcotator Engine...
+20:11:22.046 INFO  FuncotatorEngine - Using given VCF and Reference.  No conversion required.
+20:11:22.046 INFO  Funcotator - Creating a VCF file for output: file:/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/results/variants/somatic.indels.filtered.funcotator.vcf
+20:11:22.137 INFO  ProgressMeter - Starting traversal
+20:11:22.137 INFO  ProgressMeter -        Current Locus  Elapsed Minutes    Variants Processed  Variants/Minute
+20:11:47.858 INFO  ProgressMeter -             unmapped              0.4                   218            508.6
+20:11:47.858 INFO  ProgressMeter - Traversal complete. Processed 218 total variants in 0.4 minutes.
+20:11:47.861 INFO  VcfFuncotationFactory - ClinVar_VCF 20230717_hg38 cache hits/total: 0/0
+20:11:47.861 INFO  VcfFuncotationFactory - dbSNP 9606_b151 cache hits/total: 0/218
+20:11:47.957 INFO  Funcotator - Shutting down engine
+[August 16, 2024 at 8:11:47 PM GMT] org.broadinstitute.hellbender.tools.funcotator.Funcotator done. Elapsed time: 0.51 minutes.
+Runtime.totalMemory()=4194304000
+Tool returned:
+true
+Using GATK jar /gatk/gatk-package-4.6.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.6.0.0-local.jar Funcotator --variant /coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/results/variants/somatic.indels.filtered.vcf --reference /coh_labs/dits/rayyan/References/GATK_assembly38/Homo_sapiens_assembly38.fasta --ref-version hg38 --data-sources-path /coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s/ --output /coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/results/variants/somatic.indels.filtered.funcotator.vcf --output-file-format VCF
