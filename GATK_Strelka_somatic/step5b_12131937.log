@@ -1,0 +1,33 @@
+[2024-08-16T18:06:25.341397Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR] Unhandled Exception in MainThread
+[2024-08-16T18:06:25.343842Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR] Traceback (most recent call last):
+[2024-08-16T18:06:25.344905Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]   File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 3485, in run
+[2024-08-16T18:06:25.346027Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]     retval = self._runWorkflow(param)
+[2024-08-16T18:06:25.347074Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]   File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 4294, in _runWorkflow
+[2024-08-16T18:06:25.348270Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]     self._setupWorkflow(param)
+[2024-08-16T18:06:25.349346Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]   File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 4344, in _setupWorkflow
+[2024-08-16T18:06:25.350450Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]     cdata.setupNewRun(param)
+[2024-08-16T18:06:25.351587Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]   File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 2988, in setupNewRun
+[2024-08-16T18:06:25.353035Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]     self._validateFixParam(self.param)
+[2024-08-16T18:06:25.354139Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]   File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 2948, in _validateFixParam
+[2024-08-16T18:06:25.355214Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]     checkSgeProg("qsub")
+[2024-08-16T18:06:25.356265Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]   File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 2947, in checkSgeProg
+[2024-08-16T18:06:25.357431Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR]     if retval != 0 : raise Exception("Run mode is sge, but no %s in path" % (prog))
+[2024-08-16T18:06:25.358477Z] [g-c-1-4-11.cm.cluster] [580291_0] [WorkflowRunner] [ERROR] Exception: Run mode is sge, but no qsub in path
+Traceback (most recent call last):
+  File "/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/runWorkflow.py", line 180, in <module>
+    main(r"/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/runWorkflow.py.config.pickle","StrelkaSomatic",StrelkaSomaticWorkflow)
+  File "/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/runWorkflow.py", line 172, in main
+    errorLogFile=errorpath)
+  File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 3485, in run
+    retval = self._runWorkflow(param)
+  File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 4294, in _runWorkflow
+    self._setupWorkflow(param)
+  File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 4344, in _setupWorkflow
+    cdata.setupNewRun(param)
+  File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 2988, in setupNewRun
+    self._validateFixParam(self.param)
+  File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 2948, in _validateFixParam
+    checkSgeProg("qsub")
+  File "/opt/wtsi-cgp/strelka/lib/python/pyflow/pyflow.py", line 2947, in checkSgeProg
+    if retval != 0 : raise Exception("Run mode is sge, but no %s in path" % (prog))
+Exception: Run mode is sge, but no qsub in path

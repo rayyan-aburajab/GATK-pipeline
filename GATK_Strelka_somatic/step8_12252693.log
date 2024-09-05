@@ -1,0 +1,70 @@
+04:36:24.452 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.6.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+04:36:24.845 INFO  VariantAnnotator - ------------------------------------------------------------
+04:36:24.851 INFO  VariantAnnotator - The Genome Analysis Toolkit (GATK) v4.6.0.0
+04:36:24.851 INFO  VariantAnnotator - For support and documentation go to https://software.broadinstitute.org/gatk/
+04:36:24.851 INFO  VariantAnnotator - Executing as raburajab@g-c-1-7-31 on Linux v4.18.0-305.3.1.el8_4.x86_64 amd64
+04:36:24.851 INFO  VariantAnnotator - Java runtime: OpenJDK 64-Bit Server VM v17.0.9+9-Ubuntu-122.04
+04:36:24.851 INFO  VariantAnnotator - Start Date/Time: August 26, 2024 at 4:36:24 AM GMT
+04:36:24.851 INFO  VariantAnnotator - ------------------------------------------------------------
+04:36:24.851 INFO  VariantAnnotator - ------------------------------------------------------------
+04:36:24.852 INFO  VariantAnnotator - HTSJDK Version: 4.1.1
+04:36:24.852 INFO  VariantAnnotator - Picard Version: 3.2.0
+04:36:24.852 INFO  VariantAnnotator - Built for Spark Version: 3.5.0
+04:36:24.852 INFO  VariantAnnotator - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+04:36:24.852 INFO  VariantAnnotator - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+04:36:24.853 INFO  VariantAnnotator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+04:36:24.853 INFO  VariantAnnotator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+04:36:24.853 INFO  VariantAnnotator - Deflater: IntelDeflater
+04:36:24.853 INFO  VariantAnnotator - Inflater: IntelInflater
+04:36:24.853 INFO  VariantAnnotator - GCS max retries/reopens: 20
+04:36:24.853 INFO  VariantAnnotator - Requester pays: disabled
+04:36:24.853 INFO  VariantAnnotator - Initializing engine
+04:36:25.122 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/References/GATK_knownvariants/Homo_sapiens_assembly38.dbsnp138.vcf
+04:36:25.677 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_TumorDNA/somatic.snvs.filtered.funcotator.vcf
+04:36:25.825 INFO  VariantAnnotator - Done initializing engine
+04:36:25.918 INFO  ProgressMeter - Starting traversal
+04:36:25.918 INFO  ProgressMeter -        Current Locus  Elapsed Minutes    Variants Processed  Variants/Minute
+04:37:00.803 INFO  ProgressMeter -        chr8:30180622              0.6                  1000           1720.2
+04:37:29.723 INFO  ProgressMeter -       chr17:82032992              1.1                  2000           1880.8
+04:37:39.875 INFO  ProgressMeter -       chr17:82032992              1.2                  2451           1988.5
+04:37:39.875 INFO  ProgressMeter - Traversal complete. Processed 2451 total variants in 1.2 minutes.
+04:37:39.966 INFO  VariantAnnotator - Shutting down engine
+[August 26, 2024 at 4:37:39 AM GMT] org.broadinstitute.hellbender.tools.walkers.annotator.VariantAnnotator done. Elapsed time: 1.26 minutes.
+Runtime.totalMemory()=754974720
+Using GATK jar /gatk/gatk-package-4.6.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.6.0.0-local.jar VariantAnnotator -V /coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_TumorDNA/somatic.snvs.filtered.funcotator.vcf -reference /coh_labs/dits/rayyan/References/GATK_assembly38/Homo_sapiens_assembly38.fasta -O /coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_TumorDNA/somatic.snvs.filtered.funcotator-dbsnp.vcf -dbsnp /coh_labs/dits/rayyan/References/GATK_knownvariants/Homo_sapiens_assembly38.dbsnp138.vcf
+04:37:42.125 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/gatk/gatk-package-4.6.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+04:37:42.259 INFO  VariantAnnotator - ------------------------------------------------------------
+04:37:42.263 INFO  VariantAnnotator - The Genome Analysis Toolkit (GATK) v4.6.0.0
+04:37:42.263 INFO  VariantAnnotator - For support and documentation go to https://software.broadinstitute.org/gatk/
+04:37:42.263 INFO  VariantAnnotator - Executing as raburajab@g-c-1-7-31 on Linux v4.18.0-305.3.1.el8_4.x86_64 amd64
+04:37:42.263 INFO  VariantAnnotator - Java runtime: OpenJDK 64-Bit Server VM v17.0.9+9-Ubuntu-122.04
+04:37:42.263 INFO  VariantAnnotator - Start Date/Time: August 26, 2024 at 4:37:42 AM GMT
+04:37:42.263 INFO  VariantAnnotator - ------------------------------------------------------------
+04:37:42.263 INFO  VariantAnnotator - ------------------------------------------------------------
+04:37:42.264 INFO  VariantAnnotator - HTSJDK Version: 4.1.1
+04:37:42.264 INFO  VariantAnnotator - Picard Version: 3.2.0
+04:37:42.264 INFO  VariantAnnotator - Built for Spark Version: 3.5.0
+04:37:42.264 INFO  VariantAnnotator - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+04:37:42.264 INFO  VariantAnnotator - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+04:37:42.264 INFO  VariantAnnotator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+04:37:42.264 INFO  VariantAnnotator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+04:37:42.264 INFO  VariantAnnotator - Deflater: IntelDeflater
+04:37:42.264 INFO  VariantAnnotator - Inflater: IntelInflater
+04:37:42.265 INFO  VariantAnnotator - GCS max retries/reopens: 20
+04:37:42.265 INFO  VariantAnnotator - Requester pays: disabled
+04:37:42.265 INFO  VariantAnnotator - Initializing engine
+04:37:42.448 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/References/GATK_knownvariants/Homo_sapiens_assembly38.dbsnp138.vcf
+04:37:42.589 INFO  FeatureManager - Using codec VCFCodec to read file file:///coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_TumorDNA/somatic.indels.filtered.funcotator.vcf
+04:37:42.728 INFO  VariantAnnotator - Done initializing engine
+04:37:42.808 INFO  ProgressMeter - Starting traversal
+04:37:42.809 INFO  ProgressMeter -        Current Locus  Elapsed Minutes    Variants Processed  Variants/Minute
+04:37:54.195 INFO  ProgressMeter -             unmapped              0.2                   218           1149.0
+04:37:54.195 INFO  ProgressMeter - Traversal complete. Processed 218 total variants in 0.2 minutes.
+04:37:54.288 INFO  VariantAnnotator - Shutting down engine
+[August 26, 2024 at 4:37:54 AM GMT] org.broadinstitute.hellbender.tools.walkers.annotator.VariantAnnotator done. Elapsed time: 0.20 minutes.
+Runtime.totalMemory()=1224736768
+Using GATK jar /gatk/gatk-package-4.6.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /gatk/gatk-package-4.6.0.0-local.jar VariantAnnotator -V /coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_TumorDNA/somatic.indels.filtered.funcotator.vcf -reference /coh_labs/dits/rayyan/References/GATK_assembly38/Homo_sapiens_assembly38.fasta -O /coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_TumorDNA/somatic.indels.filtered.funcotator-dbsnp.vcf -dbsnp /coh_labs/dits/rayyan/References/GATK_knownvariants/Homo_sapiens_assembly38.dbsnp138.vcf
