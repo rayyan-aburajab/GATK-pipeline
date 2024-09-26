@@ -10,12 +10,12 @@ Pre-processing:
 - Step 3b: align using bwa-mem
 - Step 3c: merge mapped and unmapped bam files
 - Step 4: mark duplicate reads
-- Step 5: (skip in this workflow)
 
 Variant calling:
-- Step 6: determine haplotypes and assign genotypes 
-- Step 7: score and annotate variant quality
-- Step 8: filter variants based on scores
+- Step 5: determine haplotypes and assign genotypes 
+- Step 6: score and annotate variant quality
+- Step 7: filter variants based on scores
+- Step 8: add dbSNP IDs
 - Step 9: funcotator annotations
 - Step 10: split VCF into SNP and INDEL
 
@@ -38,17 +38,24 @@ See details in [Somatic Subdirectory](GATK_Strelka_somatic/README.md)
 
 #### GATK Post-Processing
 
-- Step 6: (python filtering - to be changed)
+- Step 6: add dbSNP IDs
 - Step 7: funcotator annotations
-- Step 8: add dbSNP IDs
 
 ## Python Analysis
 
 See details in [Python Subdirectory](python_scripts/README.md)
 
-- Manual filtering VCF files
+- Manually filter VCF files
 - Reformat Funcotator annotations
 - Add ClinVar annotations (due to Funcotator error)
 - Parse VCF files (eg. LOF, pathogenic variants, allele frequencies)
 - Calculate % of variants with dbSNP IDs
 - Calculate Ti/Tv ratio
+
+## Structural Variant Analysis
+
+See details in ... (to be added)
+
+- Copy number variations using GATK_CNV and CNVkit
+- Structural variant calling using Manta
+- RNA fusion analysis STAR-Fusion
