@@ -10,16 +10,20 @@
 #SBATCH --time=24:00:00               # Time limit hrs:min:sec
 #SBATCH --output=step4_%j.log   # Standard output and error log
 
-DATA_DIR="/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA"
+SAMPLE_NAME="C083-000120"
+SAMPLE_TYPE="TumorDNA"
+FULL_SAMPLE_NAME="${SAMPLE_NAME}_${SAMPLE_TYPE}"
+
+DATA_DIR="/coh_labs/dits/rayyan/Data/${SAMPLE_NAME}/AnalysisData_${SAMPLE_TYPE}"
 REF_DIR="/coh_labs/dits/rayyan/References/GATK_assembly38"
 Singularity_GATK="/coh_labs/dits/rayyan/containers/gatk_latest.sif"
 
 module load singularity
 export SINGULARITY_BIND="/coh_labs/dits/rayyan:/coh_labs/dits/rayyan"
- 
+
 singularity exec "$Singularity_GATK" \
-gatk  MarkDuplicatesSpark \
- --I "$DATA_DIR/C083-000002_TumorDNA_mergebamalignment.bam" \
- --O "$DATA_DIR/C083-000002_TumorDNA_markedduplicates.bam" \
+gatk MarkDuplicatesSpark \
+ --I "$DATA_DIR/${FULL_SAMPLE_NAME}_mergebamalignment.bam" \
+ --O "$DATA_DIR/${FULL_SAMPLE_NAME}_markedduplicates.bam" \
  --R "$REF_DIR/Homo_sapiens_assembly38.fasta" \
- --M "$DATA_DIR/C083-000002_TumorDNA_markeddups_metrics.txt"
+ --M "$DATA_DIR/${FULL_SAMPLE_NAME}_markeddups_metrics.txt"

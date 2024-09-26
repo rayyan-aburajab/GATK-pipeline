@@ -10,13 +10,17 @@
 #SBATCH --time=24:00:00               # Time limit hrs:min:sec
 #SBATCH --output=step5b_%j.log   # Standard output and error log
 
-DATA_DIR_tumor="/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA"
+SAMPLE_NAME="C083-000120"
+SAMPLE_TYPE="TumorDNA"
+
+DATA_DIR_TUMOR="/coh_labs/dits/rayyan/Data/${SAMPLE_NAME}/AnalysisData_${SAMPLE_TYPE}"
 Singularity_strelka="/coh_labs/dits/rayyan/containers/strelka2-manta_latest.sif"
 
 module load singularity
 export SINGULARITY_BIND="/coh_labs/dits/rayyan:/coh_labs/dits/rayyan"
- 
+
+# Run Strelka workflow
 singularity exec "$Singularity_strelka" \
-"$DATA_DIR_tumor/runWorkflow.py" \
+"$DATA_DIR_TUMOR/runWorkflow.py" \
  --mode local \
  --jobs 8

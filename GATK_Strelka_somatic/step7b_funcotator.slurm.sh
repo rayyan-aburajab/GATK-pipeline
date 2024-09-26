@@ -10,17 +10,21 @@
 #SBATCH --time=24:00:00               # Time limit hrs:min:sec
 #SBATCH --output=step7b_%j.log   # Standard output and error log
 
-DATA_DIR="/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/results/variants"
+SAMPLE_NAME="C083-000120"
+SAMPLE_TYPE="TumorDNA"
+FULL_SAMPLE_NAME="${SAMPLE_NAME}_${SAMPLE_TYPE}"
+
+DATA_DIR="/coh_labs/dits/rayyan/Data/${SAMPLE_NAME}/AnalysisData_${SAMPLE_TYPE}/results/variants"
 REF_DIR="/coh_labs/dits/rayyan/References/GATK_assembly38"
 gnomAD_DIR="/coh_labs/dits/rayyan/References/GATK_gnomAD/funcotator_dataSources.v1.8.hg38.20230908s"
 Singularity_GATK="/coh_labs/dits/rayyan/containers/gatk_latest.sif"
 
 module load singularity
 export SINGULARITY_BIND="/coh_labs/dits/rayyan:/coh_labs/dits/rayyan"
- 
+
 singularity exec "$Singularity_GATK" \
 gatk Funcotator \
-     --variant "$DATA_DIR/somatic.snvs.filtered.vcf" \
+     --variant "$DATA_DIR/somatic.snvs.annotateID.vcf" \
      --reference "$REF_DIR/Homo_sapiens_assembly38.fasta" \
      --ref-version hg38 \
      --data-sources-path "$gnomAD_DIR/" \
@@ -29,7 +33,7 @@ gatk Funcotator \
 
 singularity exec "$Singularity_GATK" \
 gatk Funcotator \
-     --variant "$DATA_DIR/somatic.indels.filtered.vcf" \
+     --variant "$DATA_DIR/somatic.indels.annotateID.vcf" \
      --reference "$REF_DIR/Homo_sapiens_assembly38.fasta" \
      --ref-version hg38 \
      --data-sources-path "$gnomAD_DIR/" \

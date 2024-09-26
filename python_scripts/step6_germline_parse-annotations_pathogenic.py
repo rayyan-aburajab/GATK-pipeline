@@ -1,8 +1,8 @@
 import re
 
 #GERMLINE
-# annotated_VCF = '/coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_germline/C083-000002_GermlineDNA_SNP_clinvar.vcf'
-annotated_VCF = '/coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_germline/C083-000002_GermlineDNA_INDEL_clinvar.vcf'
+annotated_VCF = '/coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_germline/C083-000002_GermlineDNA_SNP_clinvar.vcf'
+# annotated_VCF = '/coh_labs/dits/rayyan/Data/C083-000002/PythonAnalysis_germline/C083-000002_GermlineDNA_INDEL_clinvar.vcf'
 
 vcf_pattern = re.compile(r'^(.*?)\t(.*?)\t(.*?)\t(.*?)\t(.*?)\t(.*?)\t(.*?)\t(.*?)\t(.*?)\t(.*?)$')
 info_pattern = re.compile(r'(\w+)=([^;]*)')
@@ -24,6 +24,8 @@ with open(annotated_VCF, 'r') as vcf:
             
             if any(pathogenic_pattern.search(value) for value in info_dict.values()):
                 print("Pathogenic Variant:")
+                print("REF:", record_dict['REF'])
+                print("ALT:", record_dict['ALT'])
                 print("CHROM:", record_dict['CHROM'])
                 print("POS:", record_dict['POS'])
                 print("ID:", record_dict['ID'])

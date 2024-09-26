@@ -1,5 +1,0 @@
-
-Successfully created workflow run script.
-To execute the workflow, run the following script and set appropriate options:
-
-/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA/runWorkflow.py

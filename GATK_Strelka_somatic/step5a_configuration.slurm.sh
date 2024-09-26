@@ -10,18 +10,23 @@
 #SBATCH --time=24:00:00               # Time limit hrs:min:sec
 #SBATCH --output=step5a_%j.log   # Standard output and error log
 
-DATA_DIR_normal="/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_germline"
-DATA_DIR_tumor="/coh_labs/dits/rayyan/Data/C083-000002/AnalysisData_TumorDNA"
+SAMPLE_NAME="C083-000120"
+NORMAL_TYPE="GermlineDNA"
+TUMOR_TYPE="TumorDNA"
+FULL_SAMPLE_NAME_NORMAL="${SAMPLE_NAME}_${NORMAL_TYPE}"
+FULL_SAMPLE_NAME_TUMOR="${SAMPLE_NAME}_${TUMOR_TYPE}"
+
+DATA_DIR_NORMAL="/coh_labs/dits/rayyan/Data/${SAMPLE_NAME}/AnalysisData_${NORMAL_TYPE}"
+DATA_DIR_TUMOR="/coh_labs/dits/rayyan/Data/${SAMPLE_NAME}/AnalysisData_${TUMOR_TYPE}"
 REF_DIR="/coh_labs/dits/rayyan/References/GATK_assembly38"
 Singularity_strelka="/coh_labs/dits/rayyan/containers/strelka2-manta_latest.sif"
-#RUN_DIR="/coh_labs/dits/rayyan/Projects/GATK-pipeline/GATK_somatic"
 
 module load singularity
 export SINGULARITY_BIND="/coh_labs/dits/rayyan:/coh_labs/dits/rayyan"
- 
+
 singularity exec "$Singularity_strelka" \
 configureStrelkaSomaticWorkflow.py \
- --normalBam "$DATA_DIR_normal/C083-000002_GermlineDNA_markedduplicates.bam" \
- --tumorBam "$DATA_DIR_tumor/C083-000002_TumorDNA_markedduplicates.bam" \
+ --normalBam "$DATA_DIR_NORMAL/${FULL_SAMPLE_NAME_NORMAL}_markedduplicates.bam" \
+ --tumorBam "$DATA_DIR_TUMOR/${FULL_SAMPLE_NAME_TUMOR}_markedduplicates.bam" \
  --referenceFasta "$REF_DIR/Homo_sapiens_assembly38.fasta" \
- --runDir "$DATA_DIR_tumor"
+ --runDir "$DATA_DIR_TUMOR"

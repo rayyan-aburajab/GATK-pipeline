@@ -4,4 +4,15 @@ archived_scripts/
 # Ignore virtual environment directory
 python_scripts/VCF-analysis/
 
+# Ignore python archived
 python_scripts/scripts_archive/
+
+# Ignore log files
+GATK_germline/log_C083-000002/
+GATK_germline/log_C083-000120/
+GATK_Strelka_somatic/log_C083-000002/
+GATK_Strelka_somatic/log_C083-000120/
+SV_analysis/STAR-Fusion/log_files/
+SV_analysis/Manta/log_files/
+SV_analysis/CNVkit/log_files/
+SV_analysis/GATK_CNV/log_C083-000002

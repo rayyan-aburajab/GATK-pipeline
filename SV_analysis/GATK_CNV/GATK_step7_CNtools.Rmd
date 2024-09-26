@@ -1,0 +1,52 @@
+---
+title: "Run_CNtools"
+output: html_document
+date: "2024-09-13"
+---
+
+```{r}
+library(CNTools)
+```
+
+```{r}
+gene.info.file <- "/coh_labs/dits/rayyan/Data/C083-000002/SV_analysis/GATK_CNV/geneinfo_GRCh38.txt"
+gatk_file <- "/coh_labs/dits/rayyan/Data/C083-000002/SV_analysis/GATK_CNV/modelsegments/C083-000002_TumorDNA.cr.igv.seg"
+
+geneinfo.hg38 = read.table(gene.info.file,header=T,sep="\t")
+
+gatk_out <- read.table(gatk_file,header=T)
+```
+
+```{r}
+names(gatk_out)[1] <- "ID"
+names(gatk_out)[2] <- "chrom"
+names(gatk_out)[3] <- "loc.start"
+names(gatk_out)[4] <- "loc.end"
+names(gatk_out)[5] <- "num.mark"
+names(gatk_out)[6] <- "seg.mean"
+gatk_out$ID <- "C083-000002"
+```
+
+```{r}
+if(gatk_out[1,2]=="chr1"){gatk_out$chrom <- substring(gatk_out$chrom, 4)}
+gatk_out <- na.omit(gatk_out)
+```
+
+```{r}
+cnseq_gatk <- CNSeg(gatk_out)
+rd_gatk <- getRS(cnseq_gatk, by="gene", imput=FALSE, XY=FALSE, geneMap=geneinfo.hg38, what = "mean")
+rs_gatk <- rs(rd_gatk)
+```
+
+```{r}
+rs_gatk[rs_gatk==0] <- NA
+rs_gatk <- na.omit(rs_gatk)
+```
+
+```{r}
+output_path <- "/coh_labs/dits/rayyan/Data/C083-000002/SV_analysis/GATK_CNV"
+id <- "C083-000002"
+
+write.table(rs_gatk, file = file.path(output_path, paste(id, "cntools", "gatk", "txt", sep = ".")), quote = FALSE, sep = "\t", row.names = FALSE)
+```
+
