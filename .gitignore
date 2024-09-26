@@ -16,3 +16,8 @@ SV_analysis/STAR-Fusion/log_files/
 SV_analysis/Manta/log_files/
 SV_analysis/CNVkit/log_files/
 SV_analysis/GATK_CNV/log_C083-000002
+
+
+# Ignore Misc files
+SV_analysis/toollist.txt
+
