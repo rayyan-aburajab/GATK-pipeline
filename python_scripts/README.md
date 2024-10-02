@@ -38,3 +38,13 @@ These steps begin from the outputs of:
 - LOF summary: select for primary or secondary variant classifications that could be associated with loss of function i.e. adds or removes start/stop codon or shifts reading frame and print variant identifiers, classification, protein change, and clinical significance.
 - Pathogenic summary: o select for lines containing the word “pathogenic” or then print variant & additional ClinVar information.
 - *Note: script can been modified to select for any additional variant features*
+
+## Script: Calculate dbSNP
+
+- Purpose: Calculate the percentage of variants with a known dbSNP identifier (rs_).
+- Script summary: Count the number of lines containing an rs___ ID, divide by the total number lines, and print output.
+
+## Script: Calculate TiTv
+
+- Purpose: Calculate the ratio of SNPs that are transitions (purine-purine, pyrimidine-pyrimidine) to SNPs that are transversions (purine-pyrimidine, pyrimidine-purine).
+- Script summary: Define REGEX patterns corresponding to all possible transition (Ti) and transversion (Tv) combinations. Divide the number of Ti by the number of Tv and print output.
